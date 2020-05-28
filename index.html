@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>guiksr rock paper and scissors game</title>
+</head>
+<body>
+    <button id="play" style="background-color: pink; font-size: 20;">Play!</button>
+    <script>
+        let playOptions = ['rock', 'paper', 'scissors'];
+        
+        let rock = playOptions[0];
+        let paper = playOptions[1];
+        let scissors = playOptions[2];
+        
+        function computerPlay() {
+            return playOptions[Math.floor(Math.random() * playOptions.length)];
+        }
+
+        function humanPlay() {
+            playerChoice = prompt('rock, paper or scissors?');
+                switch (playerChoice.toLowerCase()) {
+                    case 'rock':
+                        return playOptions[0];
+                        break;
+                    case 'paper':
+                        return playOptions[1];
+                        break;
+                    case 'scissors':
+                        return playOptions[2];
+                    break;
+                    default:
+                        alert('say what?')
+                        break;
+                }
+            }
+
+        function playRound(playerSelection, computerSelection) {
+            playerSelection = humanPlay();
+            computerSelection = computerPlay();
+            if (playerSelection == rock && computerSelection == scissors || playerSelection == scissors && computerSelection == paper || playerSelection == paper && computerSelection == rock) {
+            alert(`You win! 🔥        🤖 ->  ${computerSelection}    🙍‍♂️ ->  ${playerSelection}`);
+            } else if (playerSelection == computerSelection) {
+                    alert(`It's a draw! 🤝`);
+            } else {
+                alert(`You lose! 😢        🤖 ->  ${computerSelection}    🙍‍♂️ ->  ${playerSelection}`);
+            }
+        }
+
+        document.getElementById("play").addEventListener("click", playRound);
+    </script>
+</body>
+</html>
