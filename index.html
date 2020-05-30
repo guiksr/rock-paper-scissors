@@ -13,6 +13,10 @@
         let rock = playOptions[0];
         let paper = playOptions[1];
         let scissors = playOptions[2];
+
+        let playerScore;
+        let computerScore;
+        let roundNumber;
         
         function computerPlay() {
             return playOptions[Math.floor(Math.random() * playOptions.length)];
@@ -37,18 +41,30 @@
             }
 
         function playRound(playerSelection, computerSelection) {
+            alert('Round ' + roundNumber);
             playerSelection = humanPlay();
             computerSelection = computerPlay();
             if (playerSelection == rock && computerSelection == scissors || playerSelection == scissors && computerSelection == paper || playerSelection == paper && computerSelection == rock) {
-            alert(`You win! 🔥        🤖 ->  ${computerSelection}    🙍‍♂️ ->  ${playerSelection}`);
+                playerScore++;
+                return alert(`You win!`);
             } else if (playerSelection == computerSelection) {
-                    alert(`It's a draw! 🤝`);
+                computerScore++;
+                return alert(`It's a draw!`);
             } else {
-                alert(`You lose! 😢        🤖 ->  ${computerSelection}    🙍‍♂️ ->  ${playerSelection}`);
+                return alert(`You lose!`);
             }
-        }
+            }
 
-        document.getElementById("play").addEventListener("click", playRound);
+        function playGame() {
+            computerScore = 0;
+            playerScore = 0;
+            for (roundNumber = 0; roundNumber < 5; roundNumber++) {
+            playRound();
+            console.log()
+            }
+            return
+        }
+        document.getElementById("play").addEventListener("click", playGame);
     </script>
 </body>
 </html>
