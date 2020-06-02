@@ -3,68 +3,10 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>guiksr rock paper and scissors game</title>
+    <title>JO KEN PO MACHINE</title>
+    <link rel="stylesheet" href="/css/style.css">
 </head>
 <body>
-    <button id="play" style="background-color: pink; font-size: 20;">Play!</button>
-    <script>
-        let playOptions = ['rock', 'paper', 'scissors'];
-        
-        let rock = playOptions[0];
-        let paper = playOptions[1];
-        let scissors = playOptions[2];
-
-        let playerScore;
-        let computerScore;
-        let roundNumber;
-        
-        function computerPlay() {
-            return playOptions[Math.floor(Math.random() * playOptions.length)];
-        }
-
-        function humanPlay() {
-            playerChoice = prompt('rock, paper or scissors?');
-                switch (playerChoice.toLowerCase()) {
-                    case 'rock':
-                        return playOptions[0];
-                        break;
-                    case 'paper':
-                        return playOptions[1];
-                        break;
-                    case 'scissors':
-                        return playOptions[2];
-                    break;
-                    default:
-                        alert('say what?')
-                        break;
-                }
-            }
-
-        function playRound(playerSelection, computerSelection) {
-            alert('Round ' + roundNumber);
-            playerSelection = humanPlay();
-            computerSelection = computerPlay();
-            if (playerSelection == rock && computerSelection == scissors || playerSelection == scissors && computerSelection == paper || playerSelection == paper && computerSelection == rock) {
-                playerScore++;
-                return alert(`You win!`);
-            } else if (playerSelection == computerSelection) {
-                computerScore++;
-                return alert(`It's a draw!`);
-            } else {
-                return alert(`You lose!`);
-            }
-            }
-
-        function playGame() {
-            computerScore = 0;
-            playerScore = 0;
-            for (roundNumber = 0; roundNumber < 5; roundNumber++) {
-            playRound();
-            console.log()
-            }
-            return
-        }
-        document.getElementById("play").addEventListener("click", playGame);
-    </script>
+<script src="/scripts/script.js"></script>
 </body>
 </html>
