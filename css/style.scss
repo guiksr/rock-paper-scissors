@@ -183,23 +183,10 @@ body {
     text-align: center;
     transform-style: preserve-3d;
     transform: translate3d(0, 0, 10em);
-    &::before {
-        position: absolute;
-        width: 100%;
-        height: 100%;
-        content: " ";
-        top: 0;
-        bottom: 0;
-        left: 0;
-        right: 0;
-        background: $pink-strong;
-        border-radius: inherit;
-        box-shadow: 0 0 0 4px $purple-outline, 0 8px 0 4px $purple-shadow;
-        transform-style: preserve-3d;
-        transform: translate3d(0, 16px, -1em);
-    }
+    height: 96px;
 }
 .button-div {
+    margin-top: -16px;
     grid-area: button-div;
 }
 .button-grid {
