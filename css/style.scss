@@ -2,6 +2,7 @@
 
 $lavander-strong: #CDC1FF;
 $lavander-light: #F7F5FF;
+$lavander-light-hover: rgb(235, 232, 250);
 $pink-light: #FFE6E6;
 $pink-strong: #FF74AF;
 $purple-shadow: #740050;
@@ -229,6 +230,7 @@ button {
     height: 100%;
     transform-style: preserve-3d;
     transform: translate3d(0, 0, 10em);
+    transition: transform 150ms cubic-bezier(0, 0, 0.58, 1), box-shadow 150ms cubic-bezier(0, 0, 0.58, 1);
     &::before {
         position: absolute;
         width: 100%;
@@ -243,6 +245,23 @@ button {
         box-shadow: 0 0 0 4px $purple-outline, 0 8px 0 4px $purple-shadow;
         transform-style: preserve-3d;
         transform: translate3d(0, 16px, -1em);
+        transition: transform 150ms cubic-bezier(0, 0, 0.58, 1), box-shadow 150ms cubic-bezier(0, 0, 0.58, 1);
+    }
+    &:hover {
+        background-color: $lavander-light-hover;
+        transform: translate3d(0, 6px, 10em);
+        &::before {
+            box-shadow: 0 0 0 4px $purple-outline, 0 6px 0 4px $purple-shadow;
+            transform: translate3d(0, 10px, -1em);
+        }
+    }
+    &:active {
+        background-color: $lavander-light-hover;
+        transform: translate3d(0, 16px, 10em);
+        &::before {
+            box-shadow: 0 0 0 4px $purple-outline, 0 0px 0 4px $purple-shadow;
+            transform: translate3d(0, 0px, -1em);
+        }
     }
 }
 .display-text {
