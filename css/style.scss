@@ -24,10 +24,11 @@ body {
     font-family: Roboto, sans-serif;
     color: $purple-outline;
     font-size: 1rem;
-    line-height: 1.5;
     display: flex;
-    align-items: center;
+    flex-direction: column;
     justify-content: center;
+    align-items: center;
+    line-height: 1.5;
     background-color: $lavander-strong;
     min-height: 98vh;
     box-sizing: border-box;
@@ -260,4 +261,29 @@ button {
     height: 6px;
     background-color: $purple-outline;
     border-radius: 3px;
+}
+.social-links {
+    font-family: Roboto, sans-serif;
+    font-size: 16px;
+    display: block;
+    position: absolute;
+    bottom: 0px;
+    left: 24px;
+    right: 24px;
+}
+.flex {
+    display: flex;
+    justify-content: space-between;
+}
+
+a {
+    margin-right: 16px;
+    font-size: 16px;
+    font-family: Roboto, sans-serif;
+    color: $purple-outline;
+    text-decoration: underline;
+    cursor: pointer;
+    &:hover {
+        color:  #7a0b4a;
+    }
 }

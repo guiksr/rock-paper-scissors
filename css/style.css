@@ -18,16 +18,20 @@ body {
   font-family: Roboto, sans-serif;
   color: #690940;
   font-size: 1rem;
-  line-height: 1.5;
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
-  -webkit-box-align: center;
-      -ms-flex-align: center;
-          align-items: center;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
   -webkit-box-pack: center;
       -ms-flex-pack: center;
           justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  line-height: 1.5;
   background-color: #CDC1FF;
   min-height: 98vh;
   -webkit-box-sizing: border-box;
@@ -374,5 +378,37 @@ button:active::before {
   height: 6px;
   background-color: #690940;
   border-radius: 3px;
+}
+
+.social-links {
+  font-family: Roboto, sans-serif;
+  font-size: 16px;
+  display: block;
+  position: absolute;
+  bottom: 0px;
+  left: 24px;
+  right: 24px;
+}
+
+.flex {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+}
+
+a {
+  margin-right: 16px;
+  font-size: 16px;
+  font-family: Roboto, sans-serif;
+  color: #690940;
+  text-decoration: underline;
+  cursor: pointer;
+}
+
+a:hover {
+  color: #7a0b4a;
 }
 /*# sourceMappingURL=style.css.map */

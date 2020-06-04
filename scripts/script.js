@@ -1,7 +1,7 @@
-let playOptions = ['rock', 'paper', 'scissors'];
+let playOptions = ['Rock', 'Paper', 'Scissors'];
         
-let playerScore;
-let computerScore;
+let playerScore = 0;
+let computerScore = 0;
 let roundNumber;
 
 let rock = playOptions[0];
@@ -12,24 +12,24 @@ function computerPlay() {
     return playOptions[Math.floor(Math.random() * playOptions.length)];
 }
 
-function humanPlay() {
-    return playOptions[Math.floor(Math.random() * playOptions.length)];
-}
-
-function playRound(playerSelection, computerSelection) {
-    playerSelection = humanPlay();
-    computerSelection = computerPlay();
+function playRound(playerSelection) {
+    computerSelection = computerPlay(); 
     if (playerSelection == rock && computerSelection == scissors || playerSelection == scissors && computerSelection == paper || playerSelection == paper && computerSelection == rock) {
         playerScore++;
-        return console.log(`You win!`);
+        document.getElementById('player-points').innerHTML = `${playerScore}`;
+        return document.getElementById('info-display').innerHTML = `You won! ${playerSelection} beats ${computerSelection}`;
     } else if (playerSelection == computerSelection) {        
-        return console.log(`It's a draw!`);
+        return document.getElementById('info-display').innerHTML = 'It\'s a Draw!';
     } else {
         computerScore++;
-        return console.log(`You lose!`);
+        document.getElementById('machine-points').innerHTML = `${computerScore}`;
+        return document.getElementById('info-display').innerHTML = `You lost! ${playerSelection} loses to ${computerSelection}`;
     }
 }
 
+
+
+/*
 function playGame(totalRounds) {
     let gameResult;
     computerScore = 0;
@@ -45,5 +45,4 @@ function playGame(totalRounds) {
     if (playerScore < computerScore) {gameResult = 'you lost the game'}
     return console.log(`After ${totalRounds} rounds ${gameResult}, the computer scored ${computerScore} and you ${playerScore} points`)
     }
-
-playGame(5);
+    */
