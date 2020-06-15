@@ -1,48 +1,86 @@
-let playOptions = ['Rock', 'Paper', 'Scissors'];
-        
+let playOptions = ['rock', 'paper', 'scissors'];
+
 let playerScore = 0;
 let computerScore = 0;
-let roundNumber;
+let roundsPlayed = 0;
 
 let rock = playOptions[0];
 let paper = playOptions[1];
 let scissors = playOptions[2];
 
+const displayInfo = document.getElementById('info-display');
+const displayPlayer = document.getElementById('player-points');
+const displayComputer = document.getElementById('machine-points');
+
+const button = document.querySelectorAll('button');
+button.forEach((btn) => {
+    btn.addEventListener('click', (e) => {
+        if (roundsPlayed < 5) {
+            playGame(btn.id);
+        } else {
+            resetGame();
+        }
+  });
+});
+
 function computerPlay() {
     return playOptions[Math.floor(Math.random() * playOptions.length)];
-}
+};
+
+function playGame(playerSelection) {
+    playRound(playerSelection);
+    roundsPlayed++;
+    checkRounds(roundsPlayed);
+};
 
 function playRound(playerSelection) {
-    computerSelection = computerPlay(); 
+    computerSelection = computerPlay();
     if (playerSelection == rock && computerSelection == scissors || playerSelection == scissors && computerSelection == paper || playerSelection == paper && computerSelection == rock) {
-        playerScore++;
-        document.getElementById('player-points').innerHTML = `${playerScore}`;
-        return document.getElementById('info-display').innerHTML = `You won! ${playerSelection} beats ${computerSelection}`;
+        addPoints('player');
+        return displayInfo.textContent = `You won! ${capitalize(playerSelection)} beats ${capitalize(computerSelection)}`;
     } else if (playerSelection == computerSelection) {        
-        return document.getElementById('info-display').innerHTML = 'It\'s a Draw!';
+        return displayInfo.textContent = 'It\'s a Draw!';
+    } else {
+        addPoints('computer');
+        return displayInfo.textContent = `You lost! ${capitalize(playerSelection)} loses to ${capitalize(computerSelection)}`;
+    }
+};
+
+function checkRounds(roundsPlayed) {
+    if (roundsPlayed == 5) {
+    displayWinner(playerScore, computerScore);
+    }
+};
+
+function addPoints(winner) {
+    if (winner == 'player') {
+        playerScore++;
+        displayPlayer.textContent = `${playerScore}`;
     } else {
         computerScore++;
-        document.getElementById('machine-points').innerHTML = `${computerScore}`;
-        return document.getElementById('info-display').innerHTML = `You lost! ${playerSelection} loses to ${computerSelection}`;
+        displayComputer.textContent = `${computerScore}`;
     }
-}
+};
 
+function displayWinner(playerScore, computerScore) {
+    if (computerScore > playerScore) {
+        return displayInfo.textContent = `After 5 rounds you lost :(`;
+    } else if (computerScore == playerScore) {
+        return displayInfo.textContent = `After 5 rounds it's a draw :P`;
+    } else {
+        return displayInfo.textContent = `After 5 rounds you won :)`;
+    }
+};
 
-
-/*
-function playGame(totalRounds) {
-    let gameResult;
-    computerScore = 0;
+function resetGame() {
     playerScore = 0;
-        for (actualRound = 1; actualRound <= totalRounds; actualRound++) {
-        console.log('Round ' + actualRound);
-        playRound();
-        console.log(`Player Score: ${playerScore}`)
-        console.log(`Computer Score: ${computerScore}`)
-        }
-    if (playerScore == computerScore) {gameResult = 'the game is a draw'}
-    if (playerScore > computerScore) {gameResult = 'you won the game'}
-    if (playerScore < computerScore) {gameResult = 'you lost the game'}
-    return console.log(`After ${totalRounds} rounds ${gameResult}, the computer scored ${computerScore} and you ${playerScore} points`)
-    }
-    */
+    computerScore = 0;
+    roundsPlayed = 0;
+    displayPlayer.textContent = `${playerScore}`;
+    displayComputer.textContent = `${computerScore}`;
+    displayInfo.textContent = 'Choose your move to start a new game'
+};
+
+function capitalize(string) {
+    return string.charAt(0).toUpperCase() + string.slice(1);
+};
