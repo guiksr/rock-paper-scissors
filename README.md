@@ -3,6 +3,9 @@
 # JAN KEN PON MACHINE
 > Try to beat the computer on a cute skeumorphic rock paper scissors machine, this project was created to train some JavaScript basic principles and to test this design aesthetic, hope you like the buttons :)
 
+&nbsp;
+&nbsp;
+
 [![play](https://user-images.githubusercontent.com/31513429/87463740-4b9ebc00-c5e8-11ea-91d7-6f29fb81e9a5.png)](http://guiksr.github.io/rock-paper-scissors/) 
 
 ---
