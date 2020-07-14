@@ -1,289 +1,289 @@
-@import url('https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,400;0,700;1,700&display=swap');
+@import url("https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,400;0,700;1,700&display=swap");
 
-$lavander-strong: #CDC1FF;
-$lavander-light: #F7F5FF;
+$lavander-strong: #cdc1ff;
+$lavander-light: #f7f5ff;
 $lavander-light-hover: rgb(235, 232, 250);
-$pink-light: #FFE6E6;
-$pink-strong: #FF74AF;
+$pink-light: #ffe6e6;
+$pink-strong: #ff74af;
 $purple-shadow: #740050;
 $purple-outline: #690940;
 
 * {
+  box-sizing: border-box;
+
+  &::before,
+  &::after {
     box-sizing: border-box;
-    &::before, &::after {
-      box-sizing: border-box;
-    }
   }
+}
 
 h1 {
-    margin: 0px;
-    padding: 0px;
+  margin: 0px;
+  padding: 0px;
 }
 
 body {
-    font-family: Roboto, sans-serif;
-    color: $purple-outline;
-    font-size: 1rem;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    line-height: 1.5;
-    background-color: $lavander-strong;
-    min-height: 98vh;
-    box-sizing: border-box;
+  font-family: Roboto, sans-serif;
+  color: $purple-outline;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: $lavander-strong;
+  min-height: 98vh;
+}
+
+button {
+  font-family: Roboto, sans-serif;
+  color: $purple-outline;
+  font-weight: bold;
+  font-size: 32px;
+  text-transform: uppercase;
+  position: relative;
+  border-radius: 20px;
+  background-color: $lavander-light;
+  border: 4px solid $purple-outline;
+  transform-style: preserve-3d;
+  transform: translate3d(0, 0, 10em);
+  transition: transform 150ms cubic-bezier(0, 0, 0.58, 1),
+    box-shadow 150ms cubic-bezier(0, 0, 0.58, 1);
+
+  &::before {
+    content: " ";
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    background: $pink-strong;
+    border-radius: inherit;
+    box-shadow: 0 0 0 4px $purple-outline, 0 8px 0 4px $purple-shadow;
+    transform-style: preserve-3d;
+    transform: translate3d(0, 16px, -1em);
+    transition: transform 150ms cubic-bezier(0, 0, 0.58, 1),
+      box-shadow 150ms cubic-bezier(0, 0, 0.58, 1);
+  }
+
+  &:hover {
+    cursor: pointer;
+    background-color: $lavander-light-hover;
+    transform: translate3d(0, 6px, 10em);
+    
+    &::before {
+      box-shadow: 0 0 0 4px $purple-outline, 0 6px 0 4px $purple-shadow;
+      transform: translate3d(0, 10px, -1em);
+    }
+  }
+
+  &:active {
+    background-color: $lavander-light-hover;
+    transform: translate3d(0, 16px, 10em);
+  
+    &::before {
+      box-shadow: 0 0 0 4px $purple-outline, 0 0px 0 4px $purple-shadow;
+      transform: translate3d(0, 0px, -1em);
+    }
+  }
 }
 
 .machine-body {
-    grid-template-columns: 1fr 1fr 1fr;
-    grid-template-rows: 1fr 1fr 1fr;
-    grid-template-areas:
-        "branding points-display sound"
-        "info-display info-display info-display"
-        "button-div button-div button-div"
-    ;
-    column-gap: 24px;
-    row-gap: 48px;
-    padding: 32px 48px 56px 48px;
-    position: relative;
-    display: grid;
+  position: relative;
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  grid-template-rows: 1fr 1fr 1fr;
+  grid-template-areas:
+    "branding points-display sound"
+    "info-display info-display info-display"
+    "button-div button-div button-div";
+  column-gap: 24px;
+  row-gap: 48px;
+  padding: 32px 48px 56px 48px;
+  width: 912px;
+  height: 482px;
+  border-radius: 20px;
+  border: 4px solid $purple-outline;
+  background-color: $pink-light;
+  transform-style: preserve-3d;
+  transform: translate3d(0, -50px, 0);
+  
+  &::before {
     content: " ";
-    vertical-align: middle;
-    background-color: $pink-light;
-    border-radius: 20px;
-    width: 912px;
-    height: 482px;
-    border: 4px solid $purple-outline;
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    width: 100%;
+    height: 100%;
+    border-radius: inherit;
+    background: $pink-strong;
+    box-shadow: 0 0 0 4px $purple-outline, 0 16px 0 4px $purple-shadow;
     transform-style: preserve-3d;
-    transform: translate3d(0, -50px, 0);
-    &::before {
-        position: absolute;
-        width: 100%;
-        height: 100%;
-        content: " ";
-        top: 0;
-        bottom: 0;
-        left: 0;
-        right: 0;
-        background: $pink-strong;
-        border-radius: inherit;
-        box-shadow: 0 0 0 4px $purple-outline, 0 16px 0 4px $purple-shadow;
-        transform-style: preserve-3d;
-        transform: translate3d(0, 32px, -2em);
-    }
+    transform: translate3d(0, 32px, -2em);
+  }
 }
 
 .branding {
-    grid-area: branding;
+  grid-area: branding;
+
+  &-japanese {
+    font-size: 40px;
+  }
+
+  &-bottom {
     display: flex;
-    flex-direction: column;
-    margin: 0;
-}
-.branding-bottom {
-    display: flex;
-    flex-direction: row;
     justify-content: space-between;
     align-items: center;
     margin: 0px;
     padding: 0 16px 0 8px;
-}
-.japanese {
-    font-size: 40px;
-    width: 100%;
-}
+  }
 
-.guiksr-div {
-    font-size: 8px;
+  &-guiksr {
+    font-size: 16px;
     font-style: italic;
-}
-
-.guiksr {
     padding-left: 4px;
     border-left: 4px solid $purple-outline;
     border-bottom: 4px solid $purple-outline;
-}
+  }
 
-.little-light {
+  &-dot {
     background-color: $lavander-light;
     border-radius: 50%;
     border: 4px solid $purple-outline;
     height: 20px;
     width: 20px;
+  }
 }
-.points-display {
+
+.score {
+  &-wrapper {
     grid-area: points-display;
     display: flex;
     justify-content: space-evenly;
     margin-top: -70px;
     padding: 16px 16px 8px 16px;
-    text-align: center;
     border-radius: 20px;
+    text-align: center;
     background-color: $pink-light;
     border: 4px solid $purple-outline;
     transform-style: preserve-3d;
     transform: translate3d(0, 0, 10em);
+    
     &::before {
-        position: absolute;
-        width: 100%;
-        height: 100%;
-        content: " ";
-        top: 0;
-        bottom: 0;
-        left: 0;
-        right: 0;
-        background: $pink-strong;
-        border-radius: inherit;
-        box-shadow: 0 0 0 4px $purple-outline, 0 8px 0 4px $purple-shadow;
-        transform-style: preserve-3d;
-        transform: translate3d(0, 16px, -1em);
+      content: " ";
+      position: absolute;
+      top: 0;
+      bottom: 0;
+      left: 0;
+      right: 0;
+      width: 100%;
+      height: 100%;
+      background: $pink-strong;
+      border-radius: inherit;
+      box-shadow: 0 0 0 4px $purple-outline, 0 8px 0 4px $purple-shadow;
+      transform-style: preserve-3d;
+      transform: translate3d(0, 16px, -1em);
     }
-}
-.name {
-    font-size: 16px;
-    text-transform: uppercase;
-    font-family: Roboto, sans-serif;
-    margin-bottom: -4px;
-    letter-spacing: 1px;
-}
-.machine-points, .player-points {
+  }
+
+  &-display {
+    width: 100px;
+    height: 100px;
     border-radius: 20px;
     display: flex;
     align-items: center;
     justify-content: center;
     background-color: $lavander-light;
     border: 4px solid $purple-outline;
-    width: 100px;
-    height: 100px;
     margin: 5px 16px 0px 16px;
     font-size: 24px;
-}
-.versus {
+  }
+
+  &-name {
+    font-size: 16px;
+    text-transform: uppercase;
+    margin-bottom: -4px;
+    letter-spacing: 1px;
+  }
+
+  &-versus {
     display: flex;
     align-items: center;
     justify-content: center;
     padding-top: 5px;
+  }
 }
+
 .sound {
-    grid-area: sound;
-    display: flex;
-    flex-direction: column;
-    justify-content: space-between;
-    padding-left: 16px;
+  grid-area: sound;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  padding-left: 16px;
 }
-.info-display {
-    position: relative;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    padding: 12px;
-    content: " ";
-    background-color: $lavander-light;
-    border-radius: 20px;
-    border: 4px solid $purple-outline;
+
+.line {
+  width: 100%;
+  height: 6px;
+  background-color: $purple-outline;
+  border-radius: 3px;
+}
+
+.display {
+  &-main {
     grid-area: info-display;
-    text-align: center;
-    transform-style: preserve-3d;
-    transform: translate3d(0, 0, 10em);
-    height: 96px;
-}
-.button-div {
-    margin-top: -16px;
-    grid-area: button-div;
-}
-.button-grid {
-    display: grid;
-    grid-template-columns: 1fr 1fr 1fr;
-    grid-template-rows: 1fr;
-    grid-gap: 24px;
-    width: 100%;
-    height: 100%;
-}
-button {
-    font-family: Roboto, sans-serif;
-    font-weight: bold;
-    font-size: 32px;
-    text-transform: uppercase;
-    color: $purple-outline;
-    cursor: pointer;
-    outline: none;
-    border: 0;
-    position: relative;
     display: flex;
     align-items: center;
     justify-content: center;
-    background-color: $lavander-light;
+    text-align: center;
+    height: 96px;
+    padding: 12px;
     border-radius: 20px;
     border: 4px solid $purple-outline;
-    width: 100%;
-    height: 100%;
+    background-color: $lavander-light;
     transform-style: preserve-3d;
     transform: translate3d(0, 0, 10em);
-    transition: transform 150ms cubic-bezier(0, 0, 0.58, 1), box-shadow 150ms cubic-bezier(0, 0, 0.58, 1);
-    &::before {
-        position: absolute;
-        width: 100%;
-        height: 100%;
-        content: " ";
-        top: 0;
-        bottom: 0;
-        left: 0;
-        right: 0;
-        background: $pink-strong;
-        border-radius: inherit;
-        box-shadow: 0 0 0 4px $purple-outline, 0 8px 0 4px $purple-shadow;
-        transform-style: preserve-3d;
-        transform: translate3d(0, 16px, -1em);
-        transition: transform 150ms cubic-bezier(0, 0, 0.58, 1), box-shadow 150ms cubic-bezier(0, 0, 0.58, 1);
-    }
-    &:hover {
-        background-color: $lavander-light-hover;
-        transform: translate3d(0, 6px, 10em);
-        &::before {
-            box-shadow: 0 0 0 4px $purple-outline, 0 6px 0 4px $purple-shadow;
-            transform: translate3d(0, 10px, -1em);
-        }
-    }
-    &:active {
-        background-color: $lavander-light-hover;
-        transform: translate3d(0, 16px, 10em);
-        &::before {
-            box-shadow: 0 0 0 4px $purple-outline, 0 0px 0 4px $purple-shadow;
-            transform: translate3d(0, 0px, -1em);
-        }
-    }
-}
-.display-text {
+  }
+
+  &-text {
     font-size: 38px;
     font-weight: bold;
+  }
 }
-.line {
-    width: 100%;
-    height: 6px;
-    background-color: $purple-outline;
-    border-radius: 3px;
+
+.buttons-grid {
+  grid-area: button-div;
+  margin-top: -16px;
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  grid-template-rows: 1fr;
+  grid-gap: 24px;
+  width: 100%;
+  height: 100%;
 }
-.social-links {
+
+.footer {
+  &-wrapper {
     font-family: Roboto, sans-serif;
     font-size: 16px;
-    display: block;
     position: absolute;
     bottom: 0px;
     left: 24px;
     right: 24px;
-}
-.flex {
     display: flex;
     justify-content: space-between;
-}
+  }
 
-a {
+  &-links {
     margin-right: 16px;
     font-size: 16px;
-    font-family: Roboto, sans-serif;
     color: $purple-outline;
     text-decoration: underline;
-    cursor: pointer;
+    
     &:hover {
-        color:  #7a0b4a;
+      cursor: pointer;
+      color: #7a0b4a;
     }
+  }
 }

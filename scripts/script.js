@@ -9,10 +9,10 @@ let paper = playOptions[1];
 let scissors = playOptions[2];
 
 const displayInfo = document.getElementById('info-display');
-const displayPlayer = document.getElementById('player-points');
-const displayComputer = document.getElementById('machine-points');
-
+const displayPlayer = document.getElementById('player-score');
+const displayComputer = document.getElementById('machine-score');
 const button = document.querySelectorAll('button');
+
 button.forEach((btn) => {
     btn.addEventListener('click', (e) => {
         if (roundsPlayed < 5) {
@@ -22,10 +22,6 @@ button.forEach((btn) => {
         }
   });
 });
-
-function computerPlay() {
-    return playOptions[Math.floor(Math.random() * playOptions.length)];
-};
 
 function playGame(playerSelection) {
     playRound(playerSelection);
@@ -44,6 +40,10 @@ function playRound(playerSelection) {
         addPoints('computer');
         return displayInfo.textContent = `You lost! ${capitalize(playerSelection)} loses to ${capitalize(computerSelection)}`;
     }
+};
+
+function computerPlay() {
+  return playOptions[Math.floor(Math.random() * playOptions.length)];
 };
 
 function checkRounds(roundsPlayed) {
